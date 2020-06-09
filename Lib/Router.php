@@ -46,7 +46,11 @@ class Router
 
         if(count($tmp) == 2) {
 
+            $controller = null;
+
             $action = $tmp[1];
+
+            if($action == '') $action = null;
 
         } else {
 
@@ -55,20 +59,12 @@ class Router
             if($controller == '') $controller = null;
     
             $action = $tmp[2] ?? null;
-    
-            // $_query = $parsed_url['query'] ?? '';
-    
-            // $tmpQuery = explode('&', $_query);
             
-            // $query = [];
+            if($action == '') $action = null;
     
-            // foreach ($tmpQuery as $key => $value) {
-            //     $tmp = explode('=', $value);
-            //     $query[$tmp[0]] = $tmp[1] ?? null;
-            // }
         }
 
-        return new Route($controller, $action, []);
+        return new Route($controller??null, $action??null, []);
 
     }
 }
