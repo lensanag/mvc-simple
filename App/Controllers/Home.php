@@ -3,13 +3,20 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-class Home {
+use Lib\Controller;
+
+class Home extends Controller {
 
     public function index() {
-        require(BASE_PATH . '/App/Views/Home/index.php');
+
+        $this->view();
+
     }
 
     public function saludo() {
-        require(BASE_PATH . '/App/Views/Home/saludo.php');
+
+        $this->view();
+
     }
+
 }
