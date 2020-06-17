@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Lib;
 
 use Lib\View;
+use Lib\Json;
 
 class Controller {
 
@@ -22,6 +23,14 @@ class Controller {
         $v = new View();
 
         return $v($payload, $viewPath);
+
+    }
+
+    public function json(array $payload = []) {
+        
+        $json = new Json();
+
+        return $json($payload);
 
     }
 
