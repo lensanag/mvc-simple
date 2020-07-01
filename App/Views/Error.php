@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>saludo</h3>
+    <?php
+        // if(env !== production) {
+            echo $th->getTraceAsString();    
+        // }
+    ?>
 </body>
 </html>

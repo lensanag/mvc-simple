@@ -9,6 +9,8 @@ class Model
 {
     protected $name;
 
+    protected $columns;
+
     public $connection;
 
     public function __construct() {
@@ -37,6 +39,19 @@ class Model
         } catch (\Throwable $th) {
             throw $th;
         }        
+    }
+
+    public function exec(string $values) {
+        try {
+            $this->check();
+
+            $sql = $values;
+
+            return $this->connection->query($sql);
+            
+        } catch (\Throwable $th) {
+            throw $th;
+        } 
     }
 
     public function find(array $criteria, array $columns) {
