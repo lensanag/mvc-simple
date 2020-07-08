@@ -4,9 +4,10 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\Actor as ActorModel;
+use Lib\Controller;
 
-class Actor
-{
+class Actor extends Controller {
+
     private $model;
 
     public function __construct() {
@@ -17,8 +18,8 @@ class Actor
     public function index() {
 
         $actorList = $this->model->getAll(['actor_id', 'first_name', 'last_name', 'last_update']);
-
-        require(BASE_PATH . '/App/Views/Actor/index.php');
+        
+        return $this->view(['actorList' => $actorList]);
     }
 
     public function edit() {
